@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { first } from 'rxjs';
 import { Car } from '../models/car';
 
 @Component({
   selector: 'cars-list',
   standalone: true,
+  imports: [CommonModule],
   templateUrl: './cars-list.component.html',
   styleUrls: ['./cars-list.component.less']
 })
@@ -55,4 +57,8 @@ export class CarsListComponent implements OnInit {
   ngOnInit(): void {
 
 }
+
+  trackById(index: number, car: Car): number {
+    return car.id;
+  }
 }
