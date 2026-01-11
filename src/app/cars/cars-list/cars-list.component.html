@@ -14,7 +14,8 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr *ngFor="let car of cars">
+                @for (car of cars; track car.id) {
+                <tr>
                     <td>{{ car.model }}</td>
                     <td>{{ car.plate }}</td>
                     <td>{{ car.deliveryDate }}</td>
@@ -24,6 +25,7 @@
                     <td> ACTION PLACEHOLDER </td>
                     <td><button class="btn btn-primary">Edit</button></td>
                 </tr>
+                }
                 </tbody>
             </table>
         </div>
