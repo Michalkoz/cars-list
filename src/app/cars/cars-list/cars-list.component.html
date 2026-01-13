@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
-            <table class="cs-table table table-striped">
+            <table *ngIf="cars.length > 0 else noCarsInfo" class="cs-table table table-striped">
                 <thead>
                 <tr>
                     <th>car</th>
@@ -26,6 +26,19 @@
                 </tr>
                 </tbody>
             </table>
+            <ng-template #noCarsInfo>
+                <div class="no-cars-info">
+                    <p>Currently no cars in service</p>
+                </div>
+            </ng-template>
         </div>
     </div>
-</div>"
+    <cs-total-cost [totalCost]="totalCost3" (shownGross)="onShownGross ($event)"> SHOW GROSS </cs-total-cost>
+    <div class="row" *ngIf="grossCost">
+        <div class="col-sm-12">
+            <div class="total-cost">
+                <p class="text-right"> TOTAL GROSS COST: {{ grossCost }} PLN</p>
+            </div>
+
+    </div>
+</div>

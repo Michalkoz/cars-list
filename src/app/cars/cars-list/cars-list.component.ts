@@ -1,17 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { first } from 'rxjs';
 import { Car } from '../models/car';
+import { TotalCostComponent } from '../total-cost/total-cost.component';
 
 @Component({
   selector: 'cars-list',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TotalCostComponent],
   templateUrl: './cars-list.component.html',
-  styleUrls: ['./cars-list.component.less']
+  styleUrls: ['./cars-list.component.less'],
+  encapsulation: ViewEncapsulation.None
 })
 export class CarsListComponent implements OnInit {
 
+  totalCost3: number = 0;
+  grossCost: number = 0;
   cars: Car[] = [
     {
       id: 1,
@@ -55,10 +59,19 @@ export class CarsListComponent implements OnInit {
   ]
   constructor() { }
   ngOnInit(): void {
+    this.countTotalCost();
+  }
 
-}
+  countTotalCost(): void {
+    this.totalCost3 = this.cars
+    .map(car => car.cost)
+    .reduce((prev, next) => prev + next)
+  }
 
   trackById(index: number, car: Car): number {
     return car.id;
+  }
+  onShownGross(grossCost: number): void {
+    this.grossCost = grossCost;
   }
 }
