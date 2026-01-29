@@ -3,16 +3,21 @@ import { CommonModule } from '@angular/common';
 import { first } from 'rxjs';
 import { Car } from '../models/car';
 import { TotalCostComponent } from '../total-cost/total-cost.component';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @Component({
   selector: 'cars-list',
   standalone: true,
-  imports: [CommonModule, TotalCostComponent],
+  imports: [CommonModule, TotalCostComponent, ReactiveFormsModule],
   templateUrl: './cars-list.component.html',
   styleUrls: ['./cars-list.component.less'],
   encapsulation: ViewEncapsulation.None
 })
 export class CarsListComponent implements OnInit {
+
+  carForm: FormGroup;
 
   totalCost3: number = 0;
   grossCost: number = 0;
@@ -57,9 +62,14 @@ export class CarsListComponent implements OnInit {
       isFullyDamaged: true
     }
   ]
-  constructor() { }
+  constructor(private formBuilder : FormBuilder) {
+    this.carForm = this.buildCarForm();
+
+   }
+
   ngOnInit(): void {
     this.countTotalCost();
+
   }
 
   countTotalCost(): void {
@@ -73,5 +83,20 @@ export class CarsListComponent implements OnInit {
   }
   onShownGross(grossCost: number): void {
     this.grossCost = grossCost;
+  }
+
+  buildCarForm(){
+    return this.formBuilder.group({
+       model: '',
+      plate: '',
+      deliveryDate: '',
+      deadline: '',
+      client: {
+        firstName: '',
+        surname: ''
+      },
+      cost: '',
+      isFullyDamaged: ''
+    })
   }
 }

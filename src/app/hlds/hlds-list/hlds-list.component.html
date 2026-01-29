@@ -1,0 +1,40 @@
+<p class="main header"> List of HLDs</p>
+
+    <table class = "styled-table">
+        <thead>
+            <tr>
+                <th> Id </th>
+                <th> Komponent </th>
+                <th> Opis </th>
+                <th> Link do dokumentacji na serwerze </th>
+                <th> Akcja </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @for (hld of hlds; track hld.id) {
+            <tr>
+                <td> {{ hld.id }} </td>
+                <td> {{ hld.name }} </td>
+                <td> {{ hld.description }} </td>
+                <td> <a href="{{ hld.link }}" target="_blank"> {{ hld.link }} </a> </td>
+                <td> ACTION PLACEHOLDER </td>
+                <td><button class="btn btn-primary">Edit</button></td>
+            </tr>
+        }
+    </table>
+
+    <p> Add a new HLD </p>
+    <div class="data-container">
+        <div class="forms-row">
+            <form class="hld-form" [formGroup]="hldForm" (ngSubmit)="onAddHld()">
+                <div class="hld-form-grid">
+                    <div class="hld-field">
+                        <label for="hld-name"> Komponent</label>
+                        <input id="hld-name" formControlName="name" type="text" class="form-control" placeholder="np. ABC">
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+    </div>

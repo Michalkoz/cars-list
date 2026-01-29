@@ -41,4 +41,28 @@
             </div>
 
     </div>
-</div>
+ </div>
+
+ <p > Add a new CAR</p>
+ <div >
+    <form [formGroup]="carForm">
+        <div>
+            <label> Model </label>
+            <input formControlName="model" type="text" placeholder="model"/>
+            <label> Plate </label>
+            <input formControlName="plate" type="text" placeholder="plate"/>
+            <label> Delivery Date </label>          
+            <input formControlName="deliveryDate" type="date" placeholder="delivery date"/>
+            <label> Deadline </label>
+            <input formControlName="deadline" type="date" placeholder="deadline"/>
+            <label> Client First Name </label>
+            <input formControlName="clientFirstName" type="text" placeholder="client first name"/>
+            <label> Client Surname </label> 
+            <input formControlName="clientSurname" type="text" placeholder="client surname"/>
+            <label> Cost </label>
+            <input formControlName="cost" type="number" placeholder="cost"/>
+        </div>
+            
+    </form>]
+
+ </div>
