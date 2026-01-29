@@ -33,8 +33,25 @@
                         <label for="hld-name"> Komponent</label>
                         <input id="hld-name" formControlName="name" type="text" class="form-control" placeholder="np. ABC">
                     </div>
+
+                    <div class="hld-field">
+                        <label for="hld-description"> Opis </label>
+                        <input id="hld-description" formControlName="description" type="text" class="form-control" placeholder="np. Opis komponentu">
+                    </div>
+
+                    <div class="hld-field">
+                        <label for="hld-link"> Link do dokumentacji na serwerze </label>
+                        <input id="hld-link" formControlName="link" type="text" class="form-control" placeholder="np. http://example.com/docs">
+                    </div>
+
+                    <div class = "hld-field-actions">
+                        <button type="submit" class="btn"> Add new HLD </button>
+                    </div>
                 </div>
             </form>
+
+            <app-hld-mini-form [form]="miniForm"></app-hld-mini-form>
         </div>
         
+        <pre> {{hldForm.value | json }} </pre>
     </div>
