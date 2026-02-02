@@ -1,11 +1,23 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
+import { FormGroup, ReactiveFormsModule, FormsModule } from '@angular/forms';
+
 
 @Component({
-  selector: 'cs-hld-mini-form',
-  imports: [],
-  templateUrl: './hld-mini-form.component.html',
+  selector: 'app-hld-mini-form',
+  standalone: true,
+  imports: [CommonModule,ReactiveFormsModule, FormsModule],
+    templateUrl: './hld-mini-form.component.html',
   styleUrl: './hld-mini-form.component.less'
 })
 export class HldMiniFormComponent {
 
+@Input({required: true})
+
+// form jest nazwą 
+formik!: FormGroup;
+
+field_data = {
+  name: ''  
+}
 }

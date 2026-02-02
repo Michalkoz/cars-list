@@ -1,0 +1,47 @@
+@import 'src/assets/styles/variables.less';
+
+.mini-form {
+    width: 280px;
+    padding: 12px;
+    background: @white;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+.mini-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 10px;
+}
+
+.mini-field.checbox {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mini-field label {
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.75);
+}
+
+.form-input {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.18);
+    outline: none;
+    transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+.mini-field.checkbox .form-input {
+    width: auto;
+    padding: 0;
+}
+
+.form-input:focus {
+    border-color: @light-blue;
+    box-shadow: 0 0 0 4px rgba(68, 110, 242, 0.18);
+}

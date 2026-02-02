@@ -12,16 +12,17 @@
             </tr>
         </thead>
         <tbody>
-            @for (hld of hlds; track hld.id) {
-            <tr>
-                <td> {{ hld.id }} </td>
-                <td> {{ hld.name }} </td>
-                <td> {{ hld.description }} </td>
-                <td> <a href="{{ hld.link }}" target="_blank"> {{ hld.link }} </a> </td>
-                <td> ACTION PLACEHOLDER </td>
-                <td><button class="btn btn-primary">Edit</button></td>
-            </tr>
-        }
+            @for (hld of hldList(); track hld.id) {
+                <tr>
+                    <td> {{ hld.id }} </td>
+                    <td> {{ hld.name }} </td>
+                    <td> {{ hld.description }} </td>
+                    <td> <a href="{{ hld.link }}" target="_blank"> {{ hld.link }} </a> </td>
+                    <td> ACTION PLACEHOLDER </td>
+                    <td><button class="btn btn-primary">Edit</button></td>
+                </tr>
+            }
+        </tbody>
     </table>
 
     <p> Add a new HLD </p>
@@ -49,9 +50,8 @@
                     </div>
                 </div>
             </form>
-
-            <app-hld-mini-form [form]="miniForm"></app-hld-mini-form>
+            <app-hld-mini-form [formik]="miniForm"></app-hld-mini-form>
         </div>
         
-        <pre> {{hldForm.value | json }} </pre>
+        <!-- <pre> {{hldForm.value | json }} </pre> -->
     </div>

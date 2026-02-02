@@ -1,1 +1,25 @@
-<p>hld-mini-form works!</p>
+<!-- [formGroup] jest dyrektywa Angulara, która łączy formularz HTML z 
+modelem formularza w komponencie TypeScript. Umożliwia to dwukierunkowe 
+wiązanie danych między widokiem a logiką aplikacji, co ułatwia 
+zarządzanie stanem formularza, walidację i obsługę zdarzeń. -->
+
+<!-- form jest przekazywany jako input z komponentu rodzica -->
+
+<form class="mini-form" [formGroup]="formik">
+    <div class="mini-field">
+        <label for="mini-name"> Imię:</label>
+        <input class="form-input" id="mini-name" type="text" formControlName="name" placeholder="np. Adam"/>
+    </div>
+    <div class="mini-field checkbox">
+        <label for="mini-selected"> Zaznaczone:</label>
+        <input class="form-input" id="mini-selected" type="checkbox" formControlName="someBooleanControl"/>
+    </div>
+
+    <div class="mini-field-actions">
+        <label>Just simple text field </label>
+        <input type="text" [(ngModel)]="field_data.name" [ngModelOptions]="{ standalone: true }">
+        
+    </div>
+    <hr>
+    <pre>Model {{field_data | json}}</pre>
+</form>
